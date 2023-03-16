@@ -121,7 +121,9 @@ h1{
     justify-content: center;
 }
 
-
+.botão_atacar{
+    display: none;
+}
 .play{
     margin-top: 5px;
     display: flex;

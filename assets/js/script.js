@@ -62,7 +62,14 @@ document.querySelector('.play').addEventListener('click',() => {
         return
     }
     document.querySelector('.play').style.display = 'none'
+    document.querySelector('.guerreiro').style.display = 'none'
+    document.querySelector('.mago').style.display = 'none'
+    document.querySelector('.grande-monstro').style.display = 'none'
+    document.querySelector('.pequeno-monstro').style.display = 'none'
     document.querySelector('.reset').style.display = 'flex'
+    document.querySelector('#monstro .botão_atacar').style.display = 'flex'
+    document.querySelector('#char .botão_atacar').style.display = 'flex'
+    
 })
 
 
