@@ -82,7 +82,6 @@ const cenario = {
     },
     fazerAtaque(atacante, atacado){
         if(atacante.vida <= 0 || atacado.vida <= 0){
-
             log.addMessage("Fim de jogo!")
             window.alert('Fim de jogo, clique em "Reiniciar" para jogar novamente!')
             return;
@@ -100,6 +99,9 @@ const cenario = {
             atacado.vida -= ataqueAtual;
             if(atacado.vida < 0){
                 atacado.vida = 0;
+                document.querySelector('.vence').showModal();
+                document.querySelector('.vence p').innerText = `${atacante.name} venceu!`
+                
             }
             log.addMessage(`${atacante.name} causou ${ataqueAtual.toFixed(2)} de dano em ${atacado.name}.`)
         }else{

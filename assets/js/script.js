@@ -1,29 +1,27 @@
+function backImage(lutador, img){
+    document.querySelector(`#${lutador} .img`).style.backgroundImage = `url(assets/img/${img}.png)`
+    document.querySelector(`#${lutador} .img`).style.backgroundPosition = 'center'
+    document.querySelector(`#${lutador} .img`).style.backgroundSize = 'cover'
+}
+
 let hero = ''
 let monstro = ''
 
 let guerreiro = document.querySelector('.guerreiro').addEventListener('click',() => {
-    document.querySelector('#char .img').style.backgroundImage = 'url(assets/img/guerreiro.png)'
-    document.querySelector('#char .img').style.backgroundPosition = 'center'
-    document.querySelector('#char .img').style.backgroundSize = 'cover'
+    backImage('char','guerreiro')
     hero = 'guerreiro'
     
 })
 let mago = document.querySelector('.mago').addEventListener('click',() => {
-    document.querySelector('#char .img').style.backgroundImage = 'url(assets/img/mago.png)'
-    document.querySelector('#char .img').style.backgroundPosition = 'center'
-    document.querySelector('#char .img').style.backgroundSize = 'cover'
+    backImage('char','mago')
     hero = 'mago'
 })
 let pequenoMonstro = document.querySelector('.pequeno-monstro').addEventListener('click',() => {
-    document.querySelector('#monstro .img').style.backgroundImage = 'url(assets/img/pequeno-monstro.png)'
-    document.querySelector('#monstro .img').style.backgroundPosition = 'center'
-    document.querySelector('#monstro .img').style.backgroundSize = 'cover'
+    backImage('monstro','pequeno-monstro')
     monstro = 'pequeno'
 })
 let grandemMonstro = document.querySelector('.grande-monstro').addEventListener('click',() => {
-    document.querySelector('#monstro .img').style.backgroundImage = 'url(assets/img/grande-monstro.png)'
-    document.querySelector('#monstro .img').style.backgroundPosition = 'center'
-    document.querySelector('#monstro .img').style.backgroundSize = 'cover'
+    backImage('monstro','grande-monstro')
     monstro = 'grande'
 })
 
@@ -61,17 +59,21 @@ document.querySelector('.play').addEventListener('click',() => {
         window.alert('Escolha os personagens!')
         return
     }
-    document.querySelector('.play').style.display = 'none'
-    document.querySelector('.guerreiro').style.display = 'none'
-    document.querySelector('.mago').style.display = 'none'
-    document.querySelector('.grande-monstro').style.display = 'none'
-    document.querySelector('.pequeno-monstro').style.display = 'none'
-    document.querySelector('.reset').style.display = 'flex'
-    document.querySelector('#monstro .botão_atacar').style.display = 'flex'
-    document.querySelector('#char .botão_atacar').style.display = 'flex'
+
+    escondidos = ['.play','.guerreiro','.mago','.grande-monstro','.pequeno-monstro']
+    for(let i in escondidos){
+        document.querySelector(`${escondidos[i]}`).style.display = 'none'
+    }
+
+    mostrar = ['.reset','#monstro .botão_atacar','#char .botão_atacar','#char .barra-vida','#char .barra','#monstro .barra-vida','#monstro .barra']
+    for(let i in mostrar){
+        document.querySelector(`${mostrar[i]}`).style.display = 'flex'
+    }
+
     
 })
 
+document.querySelector('dialog a').addEventListener('click', () => {document.querySelector('dialog').close()})
 
 
 
